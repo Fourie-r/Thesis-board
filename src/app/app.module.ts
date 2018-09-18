@@ -32,7 +32,6 @@ import { BoardComponent } from './body-contents/board/board.component';
 import { ReportsComponent } from './reports/reports.component';
 import { TopContributionComponent } from './reports/top-contribution/top-contribution.component';
 import { MainbodyContentsComponent } from './reports/mainbody-contents/mainbody-contents.component';
-import { CalendarTaskComponent } from './calendar/calendar.component';
 
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -57,10 +56,6 @@ const appRoutes: Routes = [
   {
     path: 'reports',
     component: ReportsComponent
-  },
-  {
-    path: 'calendar',
-    component: CalendarTaskComponent
   }
 ];
 
@@ -76,7 +71,6 @@ const appRoutes: Routes = [
     ReportsComponent,
     TopContributionComponent,
     MainbodyContentsComponent,
-    CalendarTaskComponent,
     CalendarComponent
   ],
   imports: [

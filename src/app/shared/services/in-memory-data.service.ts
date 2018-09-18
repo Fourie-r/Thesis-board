@@ -3,53 +3,28 @@ export class MockData implements InMemoryDbService {
   createDb() {
     let getPeoples = [{
       id: 1,
-      name: "Victor Savkin",
+      name: "Ivan Mihaylov",
       photo: "https://avatars3.githubusercontent.com/u/35996?v=3&s=400",
       designation: "Software Developer"
     }, {
       id: 2,
-      name: "Igor Minar",
+      name: "Ivan Mihaylov Mihaylov",
       photo: "https://avatars2.githubusercontent.com/u/216296?v=3&s=400",
       designation: "Software Engineer"
-    }, {
-      id: 3,
-      name: "Julie Ralph",
-      photo: "http://www.avatars24.de/img/avatars/avatar-2.jpg",
-      designation: "Software Designer"
-    }, {
-      id: 4,
-      name: "Miško Hevery",
-      photo: "https://avatars1.githubusercontent.com/u/111951?v=3&s=400",
-      designation: "Software Developer"
-    }, {
-      id: 5,
-      name: "Filipe Silva",
-      photo: "https://avatars0.githubusercontent.com/u/4172079?v=3&s=400",
-      designation: "Software Developer"
-    },{
-      id: 6,
-      name: "Mike Brocchi",
-      photo: "https://avatars0.githubusercontent.com/u/1565117?v=3&s=400",
-      designation: "Software Developer"
-    }, {
-      id: 7,
-      name: "Kent C. Dodds",
-      photo: "https://cdn1.iconfinder.com/data/icons/unique-round-blue/93/user-512.png",
-      designation: "Software Developer"
     }]
 
     let getSkills = [
       {
         id: 1,
-        name: "Angular 4"
+        name: "Angular 6"
       },
       {
         id: 2,
-        name: "Angular 2"
+        name: "Angular 4"
       },
       {
         id: 3,
-        name: "AngularJs"
+        name: "TypeScript"
       },
       {
         id: 4,
@@ -57,7 +32,7 @@ export class MockData implements InMemoryDbService {
       },
       {
         id: 5,
-        name: "MongoDB"
+        name: "Firebase"
       },
       {
         id: 6,
@@ -70,22 +45,6 @@ export class MockData implements InMemoryDbService {
       {
         id: 8,
         name: "SASS"
-      },
-      {
-        id: 9,
-        name: "PHP"
-      },
-      {
-        id: 10,
-        name: "Ruby & Rails"
-      },
-      {
-        id: 11,
-        name: "AWS"
-      },
-      {
-        id: 12,
-        name: "Kendo UI"
       }
     ]
     let getTasks = [
@@ -124,7 +83,7 @@ export class MockData implements InMemoryDbService {
       {
         id: 4,
         title: "Create task inprogress board",
-        people: 3,
+        people: 1,
         skills: [2,5,6],
         startDate: '2017-04-10T22:15:01+02:00',
         endDate: '2017-04-18T22:15:01+02:00',
@@ -135,7 +94,7 @@ export class MockData implements InMemoryDbService {
       {
         id: 5,
         title: "Create task complete board",
-        people: 4,
+        people: 2,
         skills: [3,4,7],
         startDate: '2017-04-18T22:15:01+02:00',
         endDate: '2017-04-25T22:15:01+02:00',
@@ -146,7 +105,7 @@ export class MockData implements InMemoryDbService {
       {
         id: 6,
         title: "Create task chart overview on board",
-        people: 5,
+        people: 1,
         skills: [1,2,3,6],
         startDate: '2017-04-22T22:15:01+02:00',
         endDate: '2017-04-30T22:15:01+02:00',
@@ -157,7 +116,7 @@ export class MockData implements InMemoryDbService {
       {
         id: 7,
         title: "Create service for task",
-        people: 6,
+        people: 2,
         skills: [1,2,3,7,8],
         startDate: '2017-04-25T22:15:01+02:00',
         endDate: '2017-04-30T22:15:01+02:00',
@@ -168,7 +127,7 @@ export class MockData implements InMemoryDbService {
       {
         id: 8,
         title: "Testing software",
-        people: 7,
+        people: 2,
         skills: [8,9,10],
         startDate: '2017-04-09T22:15:01+02:00',
         endDate: '2017-05-20T22:15:01+02:00',
@@ -181,7 +140,7 @@ export class MockData implements InMemoryDbService {
       {
         id: 1,
         title: "Server Deploy",
-        people: 2,
+        people: 1,
         skills: [6,7,12],
         startDate: '2017-04-17T22:15:01+02:00',
         endDate: '2017-04-28T22:15:01+02:00',
@@ -192,7 +151,7 @@ export class MockData implements InMemoryDbService {
       {
         id: 2,
         title: "Data Model Creation",
-        people: 3,
+        people: 1,
         skills: [4,8,9],
         startDate: '2017-04-20T22:15:01+02:00',
         endDate: '2017-04-27T22:15:01+02:00',
@@ -205,7 +164,7 @@ export class MockData implements InMemoryDbService {
       {
         id: 1,
         title: "Chart create for skill compare",
-        people: 5,
+        people: 2,
         skills: [1,3,6],
         startDate: '2017-04-01T22:15:01+02:00',
         endDate: '2017-04-10T22:15:01+02:00',
@@ -216,7 +175,7 @@ export class MockData implements InMemoryDbService {
       {
         id: 2,
         title: "Top contribution report",
-        people: 2,
+        people: 1,
         skills: [1,2, 4,7],
         startDate: '2017-04-12T22:15:01+02:00',
         endDate: '2017-04-20T22:15:01+02:00',
@@ -238,27 +197,27 @@ export class MockData implements InMemoryDbService {
       },
       {
         id: 3,
-        people: 3,
+        people: 2,
         data: [0.010, -0.375, 1.161, 0.684, 3.7, 3.269, 1.083, -5.127, 3.690, 2.995]
       },
       {
         id: 4,
-        people: 4,
+        people: 2,
         data: [1.988, 2.733, 3.994, 3.464, 4.001, 3.939, 1.333, -2.245, 4.339, 2.727]
       },
       {
         id: 5,
-        people: 5,
+        people: 1,
         data: [2.345, 4.733, 1.994, 2.464, 5.001, 2.939, 3.333, -1.245, 2.339, 4.727]
       },
       {
         id: 6,
-        people: 6,
+        people: 1,
         data: [0.397, 2.733, 6.994, 3.464, 6.001, 1.939, 4.333, 3.245, 5.339, 1.727]
       },
       {
         id: 7,
-        people: 7,
+        people: 2,
         data: [3.397, 5.733, 1.994, 2.464, 6.001, 3.939, 7.333, 2.245, 1.339, 3.727]
       }
     ]

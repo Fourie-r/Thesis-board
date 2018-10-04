@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewContainerRef } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { EmitterService } from './../../shared/services/emitter.service';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+
 
 import { TaskModel } from './../../shared/models/tasks.model';
 import { ProgressTaskModel } from './../../shared/models/progress-task.model';
@@ -9,6 +9,7 @@ import { CompletedTaskModel } from './../../shared/models/completed-task.model';
 import { TaskService } from './../../shared/services/task.service';
 import { PeoplesModel } from './../../shared/models/peoples.model';
 import { PeoplesService } from './../../shared/services/peoples.service';
+
 
 @Component({
   selector: 'app-board',
@@ -19,10 +20,10 @@ export class BoardComponent implements OnInit {
 
   tasks: TaskModel[] = [];
   peoples: PeoplesModel[] = [];
-  emitter = EmitterService.get("PeoplesChannel");
-  listTeamOne:ProgressTaskModel[] = [];
-  listTeamTwo:CompletedTaskModel[] = [];
-  public opened: boolean = false;
+  emitter = EmitterService.get('PeoplesChannel');
+  listTeamOne: ProgressTaskModel[] = [];
+  listTeamTwo: CompletedTaskModel[] = [];
+  public opened = false;
 
   private pieData: any = [
     { category: 'In Progress', value: 2 },
@@ -37,8 +38,7 @@ export class BoardComponent implements OnInit {
   constructor(
     public taskService: TaskService,
     public peoplesService: PeoplesService,
-    public toastr: ToastsManager,
-    vcr: ViewContainerRef) {}
+    vcr: ViewContainerRef) { }
 
 
   ngOnInit() {
@@ -48,7 +48,7 @@ export class BoardComponent implements OnInit {
     this.getAllInProgressTask();
 
     this.emitter.subscribe(msg => {
-      if(msg.msg === 'BroadcastTask') {
+      if (msg.msg === 'BroadcastTask') {
         this.tasks.push(msg.data);
       }
     });
@@ -59,64 +59,65 @@ export class BoardComponent implements OnInit {
   getAllTasks() {
     // Get all tasks
     this.taskService.getTask()
-    .subscribe(
-      tasks => {
-        this.tasks = tasks;
-      },
-      err => {
+      .subscribe(
+        tasks => {
+          console.log(tasks)
+          this.tasks = tasks;
+        },
+        err => {
           // Log errors if any
           console.log(err);
-      });
+        });
   }
 
   // Get ALl Completed Task
   getAllCompletedTask() {
     this.taskService.getCompletedTask()
-    .subscribe(
-      tasks => {
-        this.listTeamTwo = tasks;
-      },
-      err => {
+      .subscribe(
+        tasks => {
+          this.listTeamTwo = tasks;
+        },
+        err => {
           // Log errors if any
           console.log(err);
-      });
+        });
   }
 
   // Get ALl in-progress Task
   getAllInProgressTask() {
     this.taskService.getInProgressTask()
-    .subscribe(
-      tasks => {
-        this.listTeamOne = tasks;
-      },
-      err => {
+      .subscribe(
+        tasks => {
+          this.listTeamOne = tasks;
+        },
+        err => {
           // Log errors if any
           console.log(err);
-      });
+        });
   }
 
   // Get all peoples
   getAllPeople() {
     // Get all peoples
     this.peoplesService.getPeoples()
-    .subscribe(
+      .subscribe(
         peoples => {
           this.peoples = peoples;
         },
         err => {
-            // Log errors if any
-            console.log(err);
+          // Log errors if any
+          console.log(err);
         });
   }
 
   // Drop on success
   addTo($event: any, item, data) {
-    if(data === 'ToDo') {
-      this.toastr.success('Task ' + item.title + ' added in To Do board!');
+    if (data === 'ToDo') {
+      // this.toastr.success('Task ' + item.title + ' added in To Do board!');
     }
-    if(data === 'Progress') {
-      
-      let object = {
+    if (data === 'Progress') {
+
+      const object = {
         id: this.listTeamOne.length,
         title: item.title,
         people: item.people,
@@ -127,8 +128,8 @@ export class BoardComponent implements OnInit {
         end: item.endDate,
         backgroundColor: '#dff0d8'
       };
-     
-      let taskOperation:Observable<ProgressTaskModel[]>;
+
+      let taskOperation: Observable<ProgressTaskModel[]>;
 
       taskOperation = this.taskService.addTaskInProgress(object);
 
@@ -136,16 +137,16 @@ export class BoardComponent implements OnInit {
       taskOperation.subscribe(
         task => {
           // this.listTeamOne.push(object);
-          this.toastr.success('Task ' + item.title + ' added in Progress board!');
-        }, 
+          // this.toastr.success('Task ' + item.title + ' added in Progress board!');
+        },
         err => {
-            // Log errors if any
-            console.log(err);
+          // Log errors if any
+          console.log(err);
         });
     }
 
-    if(data === 'Completed') {
-      let object = {
+    if (data === 'Completed') {
+      const object = {
         id: this.listTeamTwo.length,
         title: item.title,
         people: item.people,
@@ -156,7 +157,7 @@ export class BoardComponent implements OnInit {
         end: item.endDate,
         backgroundColor: '#d9edf7'
       };
-      let taskOperation:Observable<CompletedTaskModel[]>;
+      let taskOperation: Observable<CompletedTaskModel[]>;
 
       taskOperation = this.taskService.addTaskInComplete(object);
 
@@ -164,11 +165,11 @@ export class BoardComponent implements OnInit {
       taskOperation.subscribe(
         task => {
           // this.listTeamTwo.push(object);
-          this.toastr.success('Task ' + item.title + ' added in Completed!');
-        }, 
+          // this.toastr.success('Task ' + item.title + ' added in Completed!');
+        },
         err => {
-            // Log errors if any
-            console.log(err);
+          // Log errors if any
+          console.log(err);
         });
 
     }
@@ -186,7 +187,7 @@ export class BoardComponent implements OnInit {
   openTask(task) {
     this.opened = true;
     console.log(task)
-    this.seletedTaskTitle = task.title ;
+    this.seletedTaskTitle = task.title;
     this.selectedTaskStartDate = task.startDate;
     this.selectedTaskEndDate = task.endDate;
     this.seletedTaskPeople = task.people;

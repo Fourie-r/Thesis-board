@@ -15,11 +15,8 @@ import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { ChartModule } from '@progress/kendo-angular-charts';
 
 // Third Party Modules
-import {DndModule} from 'ng2-dnd'
-import {ToastModule} from 'ng2-toastr/ng2-toastr';
-import {ToastOptions} from 'ng2-toastr';
-import {MomentModule} from 'angular2-moment';
-import {CalendarComponent} from "angular2-fullcalendar/src/calendar/calendar";
+import { DndModule } from 'ng2-dnd'
+import { MomentModule } from 'angular2-moment';
 
 // Components
 import { AppComponent } from './app.component';
@@ -35,21 +32,16 @@ import { MainbodyContentsComponent } from './reports/mainbody-contents/mainbody-
 
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { MockData }  from './shared/services/in-memory-data.service';
+import { MockData } from './shared/services/in-memory-data.service';
 
 // Services
-import { EmitterService }  from './shared/services/emitter.service';
+import { EmitterService } from './shared/services/emitter.service';
 import { PeoplesService } from './shared/services/peoples.service';
 import { TaskService } from './shared/services/task.service';
 import { SkillsService } from './shared/services/skills.service';
 import { TaskContributionService } from './shared/services/task-contribution.service';
 
-export class CustomOption extends ToastOptions {
-  positionClass: 'toast-bottom-right';
-  animate = 'flyRight'; // you can override any options available
-  newestOnTop = false;
-  showCloseButton = true;
-}
+
 
 const appRoutes: Routes = [
   { path: '', component: BodyContentsComponent },
@@ -71,7 +63,6 @@ const appRoutes: Routes = [
     ReportsComponent,
     TopContributionComponent,
     MainbodyContentsComponent,
-    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +78,6 @@ const appRoutes: Routes = [
     InMemoryWebApiModule.forRoot(MockData),
     DndModule.forRoot(),
     ChartModule,
-    ToastModule.forRoot(),
     MomentModule
   ],
   providers: [
@@ -96,7 +86,6 @@ const appRoutes: Routes = [
     SkillsService,
     EmitterService,
     TaskContributionService,
-    {provide: ToastOptions, useClass: CustomOption},
   ],
   bootstrap: [AppComponent]
 })

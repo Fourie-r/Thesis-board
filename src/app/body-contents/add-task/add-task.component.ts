@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, ViewContainerRef } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { EmitterService } from './../../shared/services/emitter.service';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 import { PeoplesModel } from './../../shared/models/peoples.model';
 import { PeoplesService } from './../../shared/services/peoples.service';
@@ -36,9 +35,8 @@ export class AddTaskComponent implements OnInit {
     public peoplesService: PeoplesService,
     public skillsService: SkillsService,
     public taskService: TaskService,
-    public toastr: ToastsManager,
     vcr: ViewContainerRef) {
-      this.toastr.setRootViewContainerRef(vcr);
+      // this.toastr.setRootViewContainerRef(vcr);
     }
 
   ngOnInit() {
@@ -51,7 +49,7 @@ export class AddTaskComponent implements OnInit {
   }
 
   showSuccess() {
-        this.toastr.success('You are awesome!', 'Success!');
+        // this.toastr.success('You are awesome!', 'Success!');
       }
 
   getAllPeople() {
@@ -104,9 +102,9 @@ export class AddTaskComponent implements OnInit {
         this.title = '';
         this.selectedPeople = 1;
         this.selectedSkills = [];
-        
-        this.toastr.success('One More Task Added In Board!');
-      }, 
+
+        // this.toastr.success('One More Task Added In Board!');
+      },
       err => {
           // Log errors if any
           console.log(err);

@@ -3,7 +3,6 @@ import { Observable } from 'rxjs/Observable';
 import { PeoplesModel } from './../../shared/models/peoples.model';
 import { EmitterService } from './../../shared/services/emitter.service';
 import { PeoplesService } from './../../shared/services/peoples.service';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-peoples',
@@ -33,9 +32,8 @@ export class PeoplesComponent implements OnInit {
 
   constructor(
     public peoplesService: PeoplesService,
-    public toastr: ToastsManager,
     vcr: ViewContainerRef) {
-    this.toastr.setRootViewContainerRef(vcr);
+    // this.toastr.setRootViewContainerRef(vcr);
   }
 
   mouseover(name) {
@@ -94,7 +92,7 @@ export class PeoplesComponent implements OnInit {
           this.designation = '';
           this.opened = false;
           this.emitter.emit('Broadcast!');
-          this.toastr.success('You Added One More People!');
+          // this.toastr.success('You Added One More People!');
       }, 
       err => {
           // Log errors if any

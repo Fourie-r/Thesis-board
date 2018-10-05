@@ -1,5 +1,6 @@
 export class ProgressTaskModel {
-	id: number;
+
+  id: number;
   title: string;
   people: number;
   skills: Array<any>;

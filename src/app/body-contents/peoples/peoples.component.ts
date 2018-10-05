@@ -8,7 +8,7 @@ import { PeoplesService } from './../../shared/services/peoples.service';
   selector: 'app-peoples',
   templateUrl: './peoples.component.html',
   styleUrls: [
-      './peoples.component.scss'
+    './peoples.component.scss'
   ],
   // prevent style encapsulation
   encapsulation: ViewEncapsulation.None
@@ -17,14 +17,14 @@ export class PeoplesComponent implements OnInit {
 
   peoples: PeoplesModel[] = [];
   errorMessage;
-  public opened: boolean = false;
+  public opened = false;
   public name: string;
   public designation: string;
   public selectedName: string;
 
-  emitter = EmitterService.get("PeoplesChannel");
+  emitter = EmitterService.get('PeoplesChannel');
 
-  public openedShortProfile: boolean = false;
+  public openedShortProfile = false;
   public seletedPeopleName: string;
   public selectedPeoplePhoto: string;
   public selectedPeopleDesignation: string;
@@ -47,13 +47,13 @@ export class PeoplesComponent implements OnInit {
   getAllPeople() {
     // Get all peoples
     this.peoplesService.getPeoples()
-    .subscribe(
+      .subscribe(
         peoples => {
           this.peoples = peoples;
         },
         err => {
-            // Log errors if any
-            console.log(err);
+          // Log errors if any
+          console.log(err);
         });
   }
 
@@ -71,35 +71,35 @@ export class PeoplesComponent implements OnInit {
 
   // Add new Team Member
   addNewMember() {
-    let data = {
-      id: this.peoples.length+1,
+    const data = {
+      id: this.peoples.length + 1,
       name: this.name,
       designation: this.designation,
       photo: 'https://cdn1.iconfinder.com/data/icons/unique-round-blue/93/user-512.png'
     }
 
     // Variable to hold a reference of addComment/updateComment
-    let peopleOperation:Observable<PeoplesModel[]>;
+    let peopleOperation: Observable<PeoplesModel[]>;
 
     peopleOperation = this.peoplesService.addPeople(data);
 
     // Subscribe to observable
     peopleOperation.subscribe(
       peoples => {
-          // Emit list event
-          this.peoples.push(data);
-          this.name = '';
-          this.designation = '';
-          this.opened = false;
-          this.emitter.emit('Broadcast!');
-          // this.toastr.success('You Added One More People!');
-      }, 
+        // Emit list event
+        this.peoples.push(data);
+        this.name = '';
+        this.designation = '';
+        this.opened = false;
+        this.emitter.emit('Broadcast!');
+        // this.toastr.success('You Added One More People!');
+      },
       err => {
-          // Log errors if any
-          console.log(err);
+        // Log errors if any
+        console.log(err);
       });
   }
-  
+
   openShortProfile(contributor) {
     this.openedShortProfile = true;
     this.seletedPeopleName = contributor.name;

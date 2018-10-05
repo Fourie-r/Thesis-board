@@ -1,24 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 *, html {
     margin:0;
-    padding:0;  
+    padding:0;
 }
 body {
    margin: 0;
    padding: 0;
 }
 #loading-bar .bar {
-  background: #d35400;
+  background: #255C69;
 }
 #loading-bar-spinner .spinner-icon {
-  border-top-color:  #d35400;
-  border-left-color: #d35400;
+  border-top-color:  #255C69;
+  border-left-color: #255C69;
 }
 #loading-bar .peg {
-  -moz-box-shadow: #d35400 1px 0 6px 1px;
-  -ms-box-shadow: #d35400 1px 0 6px 1px;
-  -webkit-box-shadow: #d35400 1px 0 6px 1px;
-  box-shadow: #d35400 1px 0 6px 1px;
+  -moz-box-shadow: #255C69 1px 0 6px 1px;
+  -ms-box-shadow: #255C69 1px 0 6px 1px;
+  -webkit-box-shadow: #255C69 1px 0 6px 1px;
+  box-shadow: #255C69 1px 0 6px 1px;
 }
 
 .loading-spinner {
@@ -31,7 +31,7 @@ body {
   height: 100%;
   width: 100%;
   min-height: 100vh;
-  background-color: #d35400;
+  background-color: #255C69;
   padding: 0;
   margin: 0;
   color: #fff;
@@ -65,13 +65,13 @@ body {
 }
 
 @keyframes sk-rotateplane {
-  0% { 
+  0% {
     transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
-  } 50% { 
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+  } 50% {
     transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
-  } 100% { 
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+  } 100% {
     transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
     -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
   }

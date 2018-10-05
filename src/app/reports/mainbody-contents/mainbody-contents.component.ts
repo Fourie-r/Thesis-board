@@ -16,24 +16,24 @@ export class MainbodyContentsComponent implements OnInit {
 
   peoples: PeoplesModel[] = [];
 
-  taskContributorData: TaskContributionModel[] =[];
-  private series: Array<any> = [];
+  taskContributorData: TaskContributionModel[] = [];
+  public series: Array<any> = [];
 
-  private months: string[] = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"];
+  public months: string[] = ['January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'];
 
-  private tasksData: any = [
+    public tasksData: any = [
     { category: 'Total Task', value: 15 },
     { category: 'In Progress Task', value: 4 },
     { category: 'Completed Task', value: 3 }
   ]
 
-  private skillData: any = [
+  public skillData: any = [
     { category: 'Total Skill', value: 12 },
     { category: 'Team Skills', value: 10 }
   ]
 
-  private contributionData: any = [
+  public contributionData: any = [
     { category: 'Need Contribution', value: 100 },
     { category: 'Team Contribution', value: 72 }
   ]
@@ -49,33 +49,33 @@ export class MainbodyContentsComponent implements OnInit {
 
   getTaskContributor() {
     this.taskContributionService.getTaskContribution()
-    .subscribe(
-      tasks => {
-        this.taskContributorData = tasks;
+      .subscribe(
+        tasks => {
+          this.taskContributorData = tasks;
 
-        this.peoplesService.getPeoples()
-        .subscribe(
-            peoples => {
-              this.peoples = peoples;
-              for (var people of Object.keys(this.peoples)) {
-                for(var task of Object.keys(this.taskContributorData)) {
-      
-                  if(this.taskContributorData[task].people === this.peoples[people].id) {
-                    this.series.push({name: this.peoples[people].name, data: this.taskContributorData[task].data});
+          this.peoplesService.getPeoples()
+            .subscribe(
+              peoples => {
+                this.peoples = peoples;
+                for (const people of Object.keys(this.peoples)) {
+                  for (const task of Object.keys(this.taskContributorData)) {
 
+                    if (this.taskContributorData[task].people === this.peoples[people].id) {
+                      this.series.push({ name: this.peoples[people].name, data: this.taskContributorData[task].data });
+
+                    }
                   }
                 }
-              }
-              
-            },
-            err => {
+
+              },
+              err => {
                 // Log errors if any
                 console.log(err);
-            });
-      },
-      err => {
+              });
+        },
+        err => {
           // Log errors if any
           console.log(err);
-      });
+        });
   }
 }

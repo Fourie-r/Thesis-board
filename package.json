@@ -2,7 +2,7 @@
   "name": "trello-angular4",
   "version": "0.0.0",
   "license": "MIT",
-  "author": "Afroza Yasmin <afroza021@gmail.com>",
+  "author": "Ivan Mihaylov <try.mihaylov@gmail.com>",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -12,18 +12,12 @@
     "e2e": "ng e2e"
   },
   "keywords": [
-    "angular4",
+    "angular6",
     "angular2",
-    "trello",
     "jira",
     "project management software",
     "kendo",
-    "kendo ui",
-    "ng4",
-    "AngularAttack2017",
-    "angular4 fullcalendar",
-    "angular4 route",
-    "team collaboration"
+    "kendo ui"
   ],
   "private": true,
   "dependencies": {

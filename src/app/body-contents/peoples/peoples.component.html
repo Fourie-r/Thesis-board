@@ -1,13 +1,13 @@
 <div class="peoples">
   <p>Team Members</p><br>
   <span class="contents" *ngFor="let people of peoples">
-    <button id="contents" kendoButton [primary]="true"  (click)="openShortProfile(people)">
+    <button id="contents" kendoButton [primary]="true" (click)="openShortProfile(people)">
       <img src="{{people.photo}}" (mouseover)="mouseover(people.name)" (mouseleave)="mouseleave(people.name)" alt="{{people.name}}">
     </button>
 
   </span>
 
-  <button kendoButton [primary]="true" class="add-people"  (click)="openPopup()">
+  <button kendoButton [primary]="true" class="add-people" (click)="openPopup()">
     <span class="k-icon k-i-plus-outline k-icon-64"></span>
   </button>
   <br>

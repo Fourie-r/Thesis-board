@@ -25,7 +25,7 @@ export class BoardComponent implements OnInit {
   listTeamTwo: CompletedTaskModel[] = [];
   public opened = false;
 
-  private pieData: any = [
+  public pieData: any = [
     { category: 'In Progress', value: 2 },
     { category: 'Completed', value: 2 }
   ]
@@ -111,7 +111,11 @@ export class BoardComponent implements OnInit {
   }
 
   // Drop on success
-  addTo($event: any, item, data) {
+  addTo(event: any, item, data) {
+
+    console.log(event)
+    console.log(item)
+    console.log(data)
     if (data === 'ToDo') {
       // this.toastr.success('Task ' + item.title + ' added in To Do board!');
     }

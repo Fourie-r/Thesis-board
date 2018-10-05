@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./body-contents.component.scss']
 })
 export class BodyContentsComponent implements OnInit {
-  
+
   constructor() { }
 
   ngOnInit() {

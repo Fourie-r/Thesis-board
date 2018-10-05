@@ -49,7 +49,7 @@
             <kendo-chart-series>
                <kendo-chart-series-item type="pie"
                   [data]="contributionData"
-                  field="value" 
+                  field="value"
                   categoryField="category">
                </kendo-chart-series-item>
                <kendo-chart-series-item-tooltip background="#ffc000">
@@ -65,7 +65,7 @@
       <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
       <kendo-chart-series>
          <kendo-chart-series-item *ngFor="let item of series"
-         type="line" style="smooth" [data]="item.data" [name]="item.name">
+         type="line" [data]="item.data" [name]="item.name">
          </kendo-chart-series-item>
       </kendo-chart-series>
    </kendo-chart>

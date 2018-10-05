@@ -1,58 +1,58 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 export class MockData implements InMemoryDbService {
   createDb() {
-    let getPeoples = [{
+    const getPeoples = [{
       id: 1,
-      name: "Ivan Mihaylov",
-      photo: "https://avatars3.githubusercontent.com/u/35996?v=3&s=400",
-      designation: "Software Developer"
+      name: 'Ivan Mihaylov',
+      photo: 'https://avatars3.githubusercontent.com/u/35996?v=3&s=400',
+      designation: 'Software Developer'
     }, {
       id: 2,
-      name: "Ivan Mihaylov Mihaylov",
-      photo: "https://avatars2.githubusercontent.com/u/216296?v=3&s=400",
-      designation: "Software Engineer"
+      name: 'Ivan Mihaylov Mihaylov',
+      photo: 'https://avatars2.githubusercontent.com/u/216296?v=3&s=400',
+      designation: 'Software Engineer'
     }]
 
-    let getSkills = [
+    const getSkills = [
       {
         id: 1,
-        name: "Angular 6"
+        name: 'Angular 6'
       },
       {
         id: 2,
-        name: "Angular 4"
+        name: 'Angular 4'
       },
       {
         id: 3,
-        name: "TypeScript"
+        name: 'TypeScript'
       },
       {
         id: 4,
-        name: "NodeJs"
+        name: 'NodeJs'
       },
       {
         id: 5,
-        name: "Firebase"
+        name: 'Firebase'
       },
       {
         id: 6,
-        name: "HTML5"
+        name: 'HTML5'
       },
       {
         id: 7,
-        name: "CSS3"
+        name: 'CSS3'
       },
       {
         id: 8,
-        name: "SASS"
+        name: 'SASS'
       }
     ]
-    let getTasks = [
+    const getTasks = [
       {
         id: 1,
-        title: "Create peoples module",
+        title: 'Create peoples module',
         people: 1,
-        skills: [1,2,3],
+        skills: [1, 2, 3],
         startDate: '2017-04-01T22:15:01+02:00',
         endDate: '2017-04-07T22:15:01+02:00',
         start: '2017-04-01T22:15:01+02:00',
@@ -61,9 +61,9 @@ export class MockData implements InMemoryDbService {
       },
       {
         id: 2,
-        title: "Create add new task module",
+        title: 'Create add new task module',
         people: 1,
-        skills: [1,2,3],
+        skills: [1, 2, 3],
         startDate: '2017-04-06T22:15:01+02:00',
         endDate: '2017-04-13T22:15:01+02:00',
         start: '2017-04-06T22:15:01+02:00',
@@ -71,9 +71,9 @@ export class MockData implements InMemoryDbService {
         backgroundColor: '#fcf8e3'
       }, {
         id: 3,
-        title: "Create Task list",
+        title: 'Create Task list',
         people: 2,
-        skills: [1,2,3],
+        skills: [1, 2, 3],
         startDate: '2017-04-03T22:15:01+02:00',
         endDate: '2017-04-10T22:15:01+02:00',
         start: '2017-04-03T22:15:01+02:00',
@@ -82,9 +82,9 @@ export class MockData implements InMemoryDbService {
       },
       {
         id: 4,
-        title: "Create task inprogress board",
+        title: 'Create task inprogress board',
         people: 1,
-        skills: [2,5,6],
+        skills: [2, 5, 6],
         startDate: '2017-04-10T22:15:01+02:00',
         endDate: '2017-04-18T22:15:01+02:00',
         start: '2017-04-10T22:15:01+02:00',
@@ -93,9 +93,9 @@ export class MockData implements InMemoryDbService {
       },
       {
         id: 5,
-        title: "Create task complete board",
+        title: 'Create task complete board',
         people: 2,
-        skills: [3,4,7],
+        skills: [3, 4, 7],
         startDate: '2017-04-18T22:15:01+02:00',
         endDate: '2017-04-25T22:15:01+02:00',
         start: '2017-04-18T22:15:01+02:00',
@@ -104,9 +104,9 @@ export class MockData implements InMemoryDbService {
       },
       {
         id: 6,
-        title: "Create task chart overview on board",
+        title: 'Create task chart overview on board',
         people: 1,
-        skills: [1,2,3,6],
+        skills: [1, 2, 3, 6],
         startDate: '2017-04-22T22:15:01+02:00',
         endDate: '2017-04-30T22:15:01+02:00',
         start: '2017-04-22T22:15:01+02:00',
@@ -115,9 +115,9 @@ export class MockData implements InMemoryDbService {
       },
       {
         id: 7,
-        title: "Create service for task",
+        title: 'Create service for task',
         people: 2,
-        skills: [1,2,3,7,8],
+        skills: [1, 2, 3, 7, 8],
         startDate: '2017-04-25T22:15:01+02:00',
         endDate: '2017-04-30T22:15:01+02:00',
         start: '2017-04-25T22:15:01+02:00',
@@ -126,9 +126,9 @@ export class MockData implements InMemoryDbService {
       },
       {
         id: 8,
-        title: "Testing software",
+        title: 'Testing software',
         people: 2,
-        skills: [8,9,10],
+        skills: [8, 9, 10],
         startDate: '2017-04-09T22:15:01+02:00',
         endDate: '2017-05-20T22:15:01+02:00',
         start: '2017-04-09T22:15:01+02:00',
@@ -136,12 +136,12 @@ export class MockData implements InMemoryDbService {
         backgroundColor: '#fcf8e3'
       }
     ]
-    let inProgressTask = [
+    const inProgressTask = [
       {
         id: 1,
-        title: "Server Deploy",
+        title: 'Server Deploy',
         people: 1,
-        skills: [6,7,12],
+        skills: [6, 7, 12],
         startDate: '2017-04-17T22:15:01+02:00',
         endDate: '2017-04-28T22:15:01+02:00',
         start: '2017-04-17T22:15:01+02:00',
@@ -150,9 +150,9 @@ export class MockData implements InMemoryDbService {
       },
       {
         id: 2,
-        title: "Data Model Creation",
+        title: 'Data Model Creation',
         people: 1,
-        skills: [4,8,9],
+        skills: [4, 8, 9],
         startDate: '2017-04-20T22:15:01+02:00',
         endDate: '2017-04-27T22:15:01+02:00',
         start: '2017-04-20T22:15:01+02:00',
@@ -160,12 +160,12 @@ export class MockData implements InMemoryDbService {
         backgroundColor: '#dff0d8'
       }
     ]
-    let completedTask = [
+    const completedTask = [
       {
         id: 1,
-        title: "Chart create for skill compare",
+        title: 'Chart create for skill compare',
         people: 2,
-        skills: [1,3,6],
+        skills: [1, 3, 6],
         startDate: '2017-04-01T22:15:01+02:00',
         endDate: '2017-04-10T22:15:01+02:00',
         start: '2017-04-01T22:15:01+02:00',
@@ -174,9 +174,9 @@ export class MockData implements InMemoryDbService {
       },
       {
         id: 2,
-        title: "Top contribution report",
+        title: 'Top contribution report',
         people: 1,
-        skills: [1,2, 4,7],
+        skills: [1, 2, 4, 7],
         startDate: '2017-04-12T22:15:01+02:00',
         endDate: '2017-04-20T22:15:01+02:00',
         start: '2017-04-12T22:15:01+02:00',
@@ -184,7 +184,7 @@ export class MockData implements InMemoryDbService {
         backgroundColor: '#d9edf7'
       }
     ]
-    let taskContribution = [
+    const taskContribution = [
       {
         id: 1,
         people: 1,
@@ -221,6 +221,6 @@ export class MockData implements InMemoryDbService {
         data: [3.397, 5.733, 1.994, 2.464, 6.001, 3.939, 7.333, 2.245, 1.339, 3.727]
       }
     ]
-    return {getPeoples, getSkills, getTasks, inProgressTask, completedTask, taskContribution};
+    return { getPeoples, getSkills, getTasks, inProgressTask, completedTask, taskContribution };
   }
 }

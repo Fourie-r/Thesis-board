@@ -17,11 +17,13 @@
                     <div class="panel-heading">
                         To Do
                     </div>
-                    <div class="panel-body scroll-list" dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="tasks">
+                    <div class="panel-body scroll-list" dnd-sortable-container [dropZones]="['boxers-zone']"
+                        [sortableData]="tasks">
                         <ul class="list-group">
-                            <li *ngFor="let item of tasks; let i = index" dnd-droppable (onDropSuccess)="addTo($event, item, 'ToDo')" (click)="openTask(item)" class="list-group-item" dnd-sortable [sortableIndex]="i">
+                            <li *ngFor="let item of tasks; let i = index" dnd-droppable (onDropSuccess)="addTo($event, item, 'ToDo')"
+                                (click)="openTask(item)" class="list-group-item" dnd-sortable [sortableIndex]="i">
                                 <span *ngFor="let people of peoples">
-                                  <img *ngIf="item.people == people.id" src="{{people.photo}}" alt="{{people.name}}">
+                                    <img *ngIf="item.people == people.id" src="{{people.photo}}" alt="{{people.name}}">
                                 </span> {{item.title}}
                                 <div class="remaining">
                                     Remaining {{ item.endDate | amDifference: item.startDate :'days' : true }} days
@@ -38,10 +40,11 @@
                     </div>
                     <div class="panel-body" dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="listTeamOne">
                         <ul class="list-group">
-                            <li *ngFor="let item of listTeamOne; let i = index" dnd-droppable (onDropSuccess)="addTo($event, item, 'Progress')" (click)="openTask(item)" class="list-group-item" dnd-sortable [sortableIndex]="i">
+                            <li *ngFor="let item of listTeamOne; let i = index" dnd-droppable (onDropSuccess)="addTo($event, item, 'Progress')"
+                                (click)="openTask(item)" class="list-group-item" dnd-sortable [sortableIndex]="i">
                                 <span *ngFor="let people of peoples">
                                     <img *ngIf="item.people == people.id" src="{{people.photo}}" alt="{{people.name}}">
-                                  </span> {{item.title}}
+                                </span> {{item.title}}
                                 <div class="remaining">
                                     Remaining {{ item.endDate | amDifference: item.startDate :'days' : true }} days
                                 </div>
@@ -57,9 +60,10 @@
                     </div>
                     <div class="panel-body" dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="listTeamTwo">
                         <ul class="list-group">
-                            <li *ngFor="let item of listTeamTwo; let i = index" dnd-droppable (onDropSuccess)="addTo($event, item, 'Completed')" (click)="openTask(item)" class="list-group-item" dnd-sortable [sortableIndex]="i">
+                            <li *ngFor="let item of listTeamTwo; let i = index" dnd-droppable (onDropSuccess)="addTo($event, item, 'Completed')"
+                                (click)="openTask(item)" class="list-group-item" dnd-sortable [sortableIndex]="i">
                                 <span *ngFor="let people of peoples">
-                                  <img *ngIf="item.people == people.id" src="{{people.photo}}" alt="{{people.name}}">
+                                    <img *ngIf="item.people == people.id" src="{{people.photo}}" alt="{{people.name}}">
                                 </span> {{item.title}}
                             </li>
                         </ul>
@@ -68,7 +72,7 @@
             </div>
             <div class="col-sm-3">
 
-                <kendo-chart [seriesColors]="['#5dc366', '#ff6358']">
+                <kendo-chart [seriesColors]="['#ff6358', '#5dc366']">
                     <kendo-chart-legend position="top"></kendo-chart-legend>
                     <kendo-chart-series>
                         <kendo-chart-series-item type="pie" [data]="pieData" field="value" categoryField="category">
@@ -89,8 +93,8 @@
                     <!-- Who will do this task -->
                     <p class="people-name" style="color: #33c8af">Responsible People</p>
                     <span *ngFor="let people of peoples">
-                      <img *ngIf="seletedTaskPeople == people.id" src="{{people.photo}}" alt="{{people.name}}">
-                      <p *ngIf="seletedTaskPeople == people.id">{{people.name}}</p>
+                        <img *ngIf="seletedTaskPeople == people.id" src="{{people.photo}}" alt="{{people.name}}">
+                        <p *ngIf="seletedTaskPeople == people.id">{{people.name}}</p>
                     </span>
 
                 </div>

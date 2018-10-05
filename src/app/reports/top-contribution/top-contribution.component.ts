@@ -20,7 +20,7 @@ export class TopContributionComponent implements OnInit {
   public contributor: Array<any> = [];
 
 
-  public opened: boolean = false;
+  public opened = false;
   public seletedPeopleName: string;
   public selectedPeoplePhoto: string;
   public selectedPeopleDesignation: string;
@@ -39,48 +39,50 @@ export class TopContributionComponent implements OnInit {
     const tmp = {};
     return arr.reduce((p, c) => {
       const k = c[key];
-      if (tmp[k]) return p;
+      if (tmp[k]) {
+        return p;
+      }
       tmp[k] = true;
       return p.concat(c);
     }, []);
   }
-  
+
 
   // Get ALl Completed Task
   getAllCompletedTask() {
     this.taskService.getCompletedTask()
-    .subscribe(
-      tasks => {
-        this.completeTasks = tasks;
+      .subscribe(
+        tasks => {
+          this.completeTasks = tasks;
 
-        // Get all peoples
-        this.peoplesService.getPeoples()
-        .subscribe(
-            peoples => {
-              
-              this.peoples = peoples;
+          // Get all peoples
+          this.peoplesService.getPeoples()
+            .subscribe(
+              peoples => {
 
-              for (var task of Object.keys(this.completeTasks)) {
-                for (var people of Object.keys(this.peoples)) {
-                  if(this.completeTasks[task].people === this.peoples[people].id) {
-                    
-                    this.contributor.push(this.peoples[people]);
+                this.peoples = peoples;
+
+                for (const task of Object.keys(this.completeTasks)) {
+                  for (const people of Object.keys(this.peoples)) {
+                    if (this.completeTasks[task].people === this.peoples[people].id) {
+
+                      this.contributor.push(this.peoples[people]);
+                    }
                   }
                 }
-              }
 
-              this.topContributor = this.dedupeByKey(this.contributor, 'id');
+                this.topContributor = this.dedupeByKey(this.contributor, 'id');
 
-            },
-            err => {
+              },
+              err => {
                 // Log errors if any
                 console.log(err);
-            });
-      },
-      err => {
+              });
+        },
+        err => {
           // Log errors if any
           console.log(err);
-      });
+        });
   }
 
   openShortProfile(contributor) {

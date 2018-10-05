@@ -1,5 +1,5 @@
 export class TaskContributionModel {
-	id: number;
+  id: number;
   people: number;
   data: Array<any>;
 }

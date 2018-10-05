@@ -1,5 +1,5 @@
 export class PeoplesModel {
-	id: number;
+  id: number;
   name: string;
   photo: string;
   designation: string;
